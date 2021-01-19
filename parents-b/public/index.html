@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Hyblab 2020</title>
+  <link href="https://fonts.googleapis.com/css?family=Mulish" rel='stylesheet'>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
   <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -11,20 +12,33 @@
   <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
   <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
   <script src="js/slide1.js" defer></script>
-  <script src="js/slide2.js" defer></script>
+  <script src="js/endPage.js" defer></script>
+  <script src="js/home.js" defer></script>
   <script src="js/index.js" defer></script>
 </head>
-<body>
-    <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
+<body class="background-black white">
+    <!-- Le conteneur sert à verrouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
     <div id="container">
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
-        <main id = "slidr">
+        <main id="slidr">
+            <section data-slidr="home">
+                <img id="logo-adopte-un-parc-a" src="./img/logo_hyblab.png" alt="Logo Adopte Un Parc">
+                <img id="robot-home" class="robot" src="./img/robot.png" alt="Robot Oya">
+                <button class="button-begin font-s white background-beige">C'est parti !</button>
+                <p class="catch-phrase font-s black">Je suis la phrase d'accroche</p>
+            </section>
+
+            <section data-slidr="page-address">
+                <img id="logo-adopte-un-parc-b" src="./img/logo_hyblab.png" alt="Logo Adopte Un Parc">
+                <img id="robot-address" class="robot" src="./img/robot.png" alt="Robot Oya">
+            </section>
+
             <section data-slidr="page-1">
                 <header>
                     <h1 id="titre">Welcome to</h1>
                 </header>
                 
-                <img src="img/logo_hyblab.png" id="logo-hyblab"></img>
+                <img src="img/logo_hyblab.png" id="logo-hyblab">
 
                 <video id="background-video" class="video-js" data-setup='{"autoplay": true, "loop" : true, "fill": true, "muted": true}'>
                     <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
@@ -33,7 +47,10 @@
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
                 <footer></footer>
             </section>
-            <section data-slidr="page-2">
+
+
+
+            <section data-slidr="end-page" class="background-white">
                 <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
                 <footer id="bandeau">
                         <!-- Logo Hyblab -->
