@@ -26,7 +26,7 @@
 .font-s{font-size: 20%;}
 
 
-/* -------------------------- Color -------------------------------- */
+/* -------------------------- Colors -------------------------------- */
 .white{color: white;}
 .background-white{background-color: white;}
 
@@ -39,7 +39,8 @@
 .dark-beige{color:#ffa584;}
 .background-dark-beige{background-color:#ffa584;}
 
-/*--------------------------- button ------------------------------- */
+/* ----------------------------------------------------------------------- */
+/* button default style */
 button{
     text-align: center;
     cursor: pointer;
@@ -50,7 +51,17 @@ button{
     font-weight: bold;
 }
 
+/*default page */
+.page{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    width: auto;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 
+}
 /* ----------------------------------------------------------------- */
 body{
     overflow: hidden;   /* pour slidr dans certains navigateurs */
@@ -68,97 +79,12 @@ body{
     height: 100%;
 }
 
-/* pour le positionnement facile, on place tout en absolue et on exprime tout en % */
-#titre{
-    text-align: center;
-    width: 20%;
-    left: 30%;
-    top: 10%;
-    position: absolute;
-    font-size: 30%;
-}
-
-#logo-hyblab{
-    text-align: center;
-    width: 50%;
-    left: 50%;
-    top: 50%;
-    margin-left:-25%;
-    margin-top:calc(-7.5% * 9 / 16 ); /* les marges sont exprimées en % de la largeur... :-( */
-    position: absolute;
-    font-size: 50%;
-    cursor: pointer;
-}
-
-#background-video{
-    position: relative; /* on doit positionner un éléments pour pouvoir ajuster sont z-index */
-    z-index: -1;
-}
-
-/* logo du site */
-#logo-adopte-un-parc-a{
-    position: absolute;
-    width: 12%;
-    height: 8%;
-    top: 0;
-    left: 0;
-}
-
-/* logo du site */
-#logo-adopte-un-parc-b{
-    position: absolute;
-    width: 12%;
-    height: 8%;
-    top: 0;
-    left: 0;
-}
-
-/* on centre l'image de fin */
-#img-fini{
-    width: 50%;
-    left: 50%;
-    top: 40%;
-    position: absolute;
-    margin-left:-25%;
-    margin-top:calc(-25% * 9 / 16 ); /* les marges sont exprimées en % de la largeur... :-( */
-}
-
-/* le footer de la slide 1 est positionné en bas de la slide et son texte est centré */
-section[data-slidr="page-1"] footer{
-    width: 100%;
-    bottom: 5%;
-    position: absolute;
-    font-size: 20%;
-    text-align: center;
-}
-
 /* Pour que la vidéo remplisse son conteneur (elle sera un peu coupée si nécessaire...) */
 .vjs-tech { object-fit: cover; }
 
 /* ------------------------- Couleurs ----------------------------- */
 
 /* ------------------------- Page Home ---------------------------- */
-.robot{
-    width: 20%;
-    height: auto;
-}
-
-#robot-home{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-}
-
-#robot-address{
-    position: absolute;
-    top: 40%;
-    left: 75%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-}
-
 .button-begin{
     padding: 0.5em 1.5em;
     position: absolute;
@@ -172,14 +98,19 @@ section[data-slidr="page-1"] footer{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-.catch-phrase{
+.button-next{
+    padding: 0.5em 1.5em;
     position: absolute;
-    margin-top: 10px;
-    top: 70%;
-    left: 50%;
+    top: 5%;
+    left: 90%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
 }
+
+.button-next:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 /* ---------- mise en forme du bandeau des logos ----------------- */
 /* ici comme on doit contraindre la hauteur des images (et non leur largeur) */
 /* on ne peut pas utiliser de taille en % on utilise donc des em (qui sont définis */
