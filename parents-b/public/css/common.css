@@ -9,8 +9,8 @@
 }
 
 /* ---------------------- Font -------------------------- */
-.font-s{font-size: 20%;}
-
+.font-s{font-size: 1.2vw;}
+.font-m{font-size: 2vw;}
 
 /* -------------------------- Colors -------------------------------- */
 .white{color: white;}
@@ -25,6 +25,8 @@
 .dark-beige{color:#ffa584;}
 .background-dark-beige{background-color:#ffa584;}
 
+.dark-purple{color: #45396D;}
+.background-dark-purple{background-color: #45396D}
 /* ----------------------------------------------------------------------- */
 /* button default style */
 button{

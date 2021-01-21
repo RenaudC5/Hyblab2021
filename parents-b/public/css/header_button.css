@@ -1,5 +1,13 @@
 /* ----------------- Header buttons --------------- */
-.logo-name-home{
+.logo{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    width: 3%;
+    z-index: 2;
+}
+
+.logo-name{
     position: absolute;
     top: 2%;
     left: 2%;
@@ -7,24 +15,32 @@
     z-index: 2;
 }
 
-.more-info-home{
+.more-info{
     position: absolute;
     top: 2%;
     left: 9%;
     width: 2%;
 }
 
-.volume-on-home{
+.volume-on{
     position: absolute;
     top: 2%;
     left: 12%;
     width: 2%;
 }
 
-.volume-off-home{
+.volume-off{
     position: absolute;
     top: 2%;
     left: 12%;
     width: 2%;
     z-index: -5;
+}
+
+.go-back{
+    position: absolute;
+    top: 2%;
+    left: 15%;
+    width: 2%;
+    z-index: 2;
 }
