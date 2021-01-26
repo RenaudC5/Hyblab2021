@@ -36,9 +36,9 @@
 
 .addresses-main-buttons{
     position: relative;
-    left: 37%;
+    left: 39%;
     top: 25%;
-    width: 27%;
+    width: 23%;
     height: 51%;
 }
 
@@ -64,17 +64,17 @@
 }
 
 .localize-icon{
-    width: 2vw;
+    width: 9%;
     position: absolute;
-    left: 80%;
+    left: 84%;
     top: 18%;
 }
 
 .loading-icon-white{
-    width: 3vw;
+    width: 15%;
     position: absolute;
-    left: 78%;
-    top: 18%;
+    left: 79%;
+    top: 14%;
     animation: rotation 2s infinite linear;
 }
 
@@ -105,6 +105,10 @@
 
 .button-third{
     top: calc(var(--space-below-input) + var(--label-input-height) + (var(--button-height) + var(--space-between-buttons)) * 2);
+}
+
+.button-localize-text{
+    margin-right: 3vw;
 }
 
 .pac-item:hover{
