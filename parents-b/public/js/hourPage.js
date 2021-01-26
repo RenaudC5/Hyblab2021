@@ -1,6 +1,6 @@
 let initHour = function(){
     d3.select(".button-suivant-hour").on("click", function (){
-        mySlidr.slide("age-page");
+        mySlidr.slide('right');
         initAge();
     });
 };

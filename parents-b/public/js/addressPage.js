@@ -5,13 +5,13 @@ let initAddress = function(){
         if(addressInput.value == null || addressInput.value === ''){
             alert('Merci de saisir votre addresse ou vous localiser')
         }else{
-            mySlidr.slide("hour-page");
+            mySlidr.slide('right');
             initHour();
         }
     });
 
     d3.select(".button-next-address-from-nevermind").on("click", function (){
-        mySlidr.slide("hour-page");
+        mySlidr.slide('right');
         initHour();
     });
 };
