@@ -6,70 +6,158 @@ let initHour = function(){
 };
 
 
-var sliders = document.getElementsByClassName("round-slider");
-console.log("Sliders:", sliders);
-for (let i = 0; i < sliders.length; i++) {
-	sliders[i].addEventListener("click", round_slider_tune, false);
-	sliders[i].addEventListener("mousedown", function(event) {
-		sliders[i].onmousemove = function(event) {
-			if (event.buttons == 1 || event.buttons == 3) {
-				round_slider_tune(event);
-			}
-		}
-	});
+var s = Snap("#svg-slider");
+
+var Lscreen=document.querySelector("#slidr").clientHeight;
+var width = document.body.clientWidth;
+var rayon = Lscreen - ((width - Lscreen)/2 ) *0.2  ;
+
+var bigCircle = s.circle(200, 200, rayon);
+
+bigCircle.attr({
+    fill: "#45396D",
+});
+
+var polygon = s.polygon(200,0 , 0,0 , 0,400 , 200,400);
+
+polygon.attr({
+    fill: "#FFCDB6"
+});
+
+var discs = s.group(bigCircle, polygon);
+
+var bigCircle2 = s.circle(200, 200, 200);
+
+bigCircle2.attr({
+    fill: "#fff"
+});
+
+discs.attr({
+    mask: bigCircle2
+});
+
+
+function calculX(dX,dY){
+ //(200,400)
+ let a = ((400-dY)/(200-dX));
+ console.log(a);
+ let b = dY - a*dX;
+ console.log(b);
+ console.log(-b/a);
+ return(-b/a);
 }
 
-function round_slider_tune(event) {
+function calculY(dX,dY,x){
+  //(200,400)
+  // x = x
+  let a = ((400-dY)/(200-dX));
+  console.log(a);
+  let b = dY - a*dX;
+  console.log(b);
+  console.log(a*x+b);
+  return(a*x+b)
+}
+
+
+document.querySelector("#svg-slider").addEventListener('click', function(event) {
   console.log(event);
-	let eventDoc = (event.target && event.target.ownerDocument) || document,
-		doc = eventDoc.documentElement,
-		body = eventDoc.body;
-	event.pageX = event.clientX +
-		  (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
-		  (doc && doc.clientLeft || body && body.clientLeft || 0);
-	event.pageY = event.clientY +
-		  (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
-		  (doc && doc.clientTop  || body && body.clientTop  || 0 );
-	let output = event.target.getElementsByClassName("selection")[0],
-		// text = event.target.getElementsByClassName("holder")[0],
-		styleafter = document.head.appendChild(document.createElement("style")),
-		elpos = event.target.getBoundingClientRect(),
-		cX = elpos.width / 2,
-		cY = elpos.height / 2,
-		eX = event.pageX - elpos.left,
-		eY = event.pageY - elpos.top,
-		dX = 0,
-		dY = 0,
-		angle = Math.atan2(cX - eX, cY - eY) * (180 / Math.PI),
-		value = 100;
+  var LscreenX=document.querySelector("#slidr").clientWidth;
+  var LscreenY=document.querySelector("#slidr").clientHeight;
 
-	if (Math.abs(eX - cX) >= Math.abs(eY - cY)) { // 110 90
-		dX = 150 / 2 + Math.sign(eX - cX) * 150 / 2;
-		dY = 150 / 2 + (eY - cY) / Math.abs(eX - cX) * 150 / 2;
-	} else {
-		dX = 150 / 2 + (eX - cX) / Math.abs(eY - cY) * 150 / 2;
-		dY = 150 / 2 + Math.sign(eY - cY) * 150 / 2;
-	}
-	dX = Math.round(dX / 150 * 100)
-	dY = Math.round(dY / 150 * 100)
-	if (0 <= dX && dX < 50 && dY == 0) {
-    console.log("Après-midi");
-		output.style = "clip-path: polygon(" + dX + "% " + dY + "%, 50% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%);";
-		value = Math.round((50 - dX) / 50 * 12.5);
-	} else if (dX == 0 && 0 <= dY && dY <= 90) {
-    console.log("Avant 9h");
-		output.style = "clip-path: polygon(" + dX + "% " + dY + "%, 50% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%);";
-		value = Math.round(12.5 + dY / 100 * 25);
-	} else if (dX == 100 && 0 <= dY && dY <= 90) {
-    console.log("Après 17h");
-		output.style = "clip-path: polygon(" + dX + "% " + dY + "%, 50% 100%, 50% 100%, 100% 100%, 100% 100%, 100% 100%);";
-		value = Math.round(62.5 + (100 - dY) / 100 * 25);
-	} else if (50 <= dX && dX <= 100 && dY == 0) {
-    console.log("Après-midi");
-		output.style = "clip-path: polygon(" + dX + "% " + dY + "%, 50% 100%, 50% 100%, 100% 100%, 100% 100%, 100% 100%);";
-		value = Math.round(87.5 + (100 - dX) / 50 * 12.5);
-	}
-	// styleafter.innerHTML = ".round-slider .selection:after {transform: rotate(" + -angle + "deg);}";
-	// let hue = Math.floor(value / 100 * 120),
-	// 	saturation = Math.abs(value - 50);
-}
+  var width = document.body.clientWidth;
+  var height = document.body.clientHeight;
+
+  console.log(LscreenX);
+  console.log(LscreenY);
+  let dX = event.pageX - LscreenX*0.38 - ((width - LscreenX)/2 );
+  let dY = event.pageY - LscreenY*0.52 ;
+  console.log("X : "+LscreenX);
+  console.log("Y : "+LscreenY);
+  console.log("dX : "+dX);
+  console.log("dY : "+dY);
+
+  console.log("nouveau : "+LscreenY*0.62*0.5);
+  document.querySelector("#svg-slider").innerHTML = "";
+  var s = Snap("#svg-slider");
+  var bigCircle = s.circle(200, 200, 200);
+  bigCircle.attr({
+      fill: "#45396D",
+  });
+
+  let violet = document.querySelectorAll(".violet");
+  for(let v of violet){
+    v.style.opacity = 0;
+  }
+
+  let change = document.querySelector("#changeHour");
+
+  // Ajouter valeur INPUT
+    if(dY < 200 && dX < 200 && ((dX-dY) >= 0) ){
+      change.value = 1;
+      document.querySelector(".hour-aprem.violet").style.opacity = 1;
+      console.log("Aprèm gauche");
+
+    } if(dY < 200 && dX >= 200 && ((dX+dY) < 400) ){
+      change.value = 1;
+      document.querySelector(".hour-aprem.violet").style.opacity = 1;
+      console.log("Aprèm droite");
+
+    } if(dY >= 200 && dX >= 200 || dY < 200 && dX >= 200 && ((dX+dY) >= 400) ){
+      change.value = 2;
+      console.log("Après 17h");
+      document.querySelector(".hour-17.violet").style.opacity = 1;
+
+    } if(dY >= 200 && dX < 200 || dY < 200 && dX < 200 && ((dX-dY) < 0) ) {
+      change.value = 0;
+      document.querySelector(".hour-9.violet").style.opacity = 1;
+      console.log("Avant 9h");
+
+    }
+
+  // Ajuster le polygone en fonction du click
+    if(dX < 200 && ((dY-2*dX) < 0)  ){
+
+      let nvX = calculX(dX,dY);
+
+      var polygon = s.polygon(nvX,0 , 0,0 , 0,400 , 200,400);
+      console.log(nvX);
+
+    } if(dX >= 200 && ((dY+2*dX) < 800) ){
+
+      let nvX = calculX(dX,dY);
+      console.log(nvX);
+
+      var polygon = s.polygon(nvX,0 , 0,0 , 0,400 , 200,400);
+
+    } if( dX >= 200 && ((dY+2*dX) >= 800) ){
+
+      let nvY = calculY(dX,dY,400);
+      console.log(nvY);
+
+      var polygon = s.polygon(400,nvY, 400,0, 0,0, 0,400 , 200,400 );
+
+    } if(dX < 200 && ((dY-2*dX) >= 0) ) {
+
+      let nvY = calculY(dX,dY,0);
+      var polygon = s.polygon(0,nvY , 0,400 , 200,400 );
+
+    }
+
+
+
+  polygon.attr({
+      fill: "#FFCDB6"
+  });
+  var disc = s.group(bigCircle, polygon);
+
+  var bigCircle2 = s.circle(200, 200, 200);
+  bigCircle2.attr({
+      fill: "#fff"
+  });
+
+  disc.attr({
+      mask: bigCircle2
+  });
+
+
+})

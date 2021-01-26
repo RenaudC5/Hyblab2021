@@ -40,14 +40,50 @@
   top: 40%;
   left: 30%;
   width: 40%;
-  z-index: 2;
+  z-index: 1;
 }
 
 .button-suivant-hour:hover{
     box-shadow: 0 16px 20px 0 rgba(0,0,0,0.65),0 24px 75px 0 rgba(0,0,0,0.55);
 }
 
-.round-slider {
+#svg-slider{
+  position: absolute;
+  top : 52%;
+  left : 38%;
+  z-index: 2;
+}
+
+.hour-9{
+  position: absolute;
+  width: 4.5%;
+  top:61%;
+  left:31%;
+  z-index: 3;
+}
+
+.hour-17{
+  position: absolute;
+  width: 4.5%;
+  top:61%;
+  left:63%;
+  z-index: 2;
+}
+
+.hour-aprem{
+  position: absolute;
+  width: 18%;
+  top:41%;
+  left:40%;
+  z-index: 3;
+}
+
+.violet{
+  z-index: 4;
+}
+
+
+/* .round-slider {
 	display: grid;
 	justify-self: center;
 	align-self: center;
@@ -59,7 +95,7 @@
   left: 38%;
   z-index: 2;
   /* transform: rotate(-125deg); */
-}
+/* }
 
 .round-slider .selection {
   width: 400px;
@@ -72,8 +108,8 @@
 	justify-self: center;
 	align-self: center;
 	pointer-events: none;
-}
-/* 
+} */
+/*
 .round-slider .selection:after {
 	display: block;
 	content: "";
