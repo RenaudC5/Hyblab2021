@@ -4,6 +4,41 @@ let initHour = function(){
         initAge();
     });
 
+    //Bouton Suivant
+    let tl_suivant_hour_over = anime.timeline({
+        easing: 'linear',
+        loop:true
+    });
+
+    d3.select('.button-suivant-hour').on('mouseover', function (){
+        tl_suivant_hour_over
+            .add({
+                targets: ".button-suivant-hour",
+                scale: 1.1,
+                duration: 500
+            })
+            .add({
+                targets: ".button-suivant-hour",
+                scale: 0.9,
+                duration: 500
+            })
+            .add({
+                targets: ".button-suivant-hour",
+                scale: 1,
+                duration: 500
+            })
+    });
+
+    d3.select('.button-suivant-hour').on('mouseleave' ,function (){
+        anime({
+            targets: ".button-suivant-hour",
+            scale: 1,
+            duration: 200,
+            ease: 'linear'
+        });
+        tl_suivant_hour_over.pause();
+    });
+
     var s = null;
     var rayon = null;
     var bigCircle = null;
@@ -58,10 +93,11 @@ let initHour = function(){
         let screenX=document.querySelector("#slidr").clientWidth;
         let screenY=document.querySelector("#slidr").clientHeight;
 
-        let width = document.body.clientWidth;
+        let width = window.innerWidth;
+        let height = window.innerHeight;
 
-        let dX = event.pageX - screenX*0.38 - ((width - screenX)/2 );
-        let dY = event.pageY - screenY*0.52 ;
+        let dX = event.pageX - screenX*0.38 - ((width - screenX)/2);
+        let dY = event.pageY - screenY*0.52 - ((height-screenY)/2);
 
         document.querySelector("#svg-slider").innerHTML = "";
         let bigCircle = s.circle(rayon, rayon, rayon);
