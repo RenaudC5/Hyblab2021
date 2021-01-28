@@ -39,14 +39,13 @@
 }
 
 .leaves-hour{
-    position: absolute;
-    top: 65%;
-    left: 5%;
-    height: auto;
-    text-align: center;
-    width: 10%;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
-    z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  text-align: center;
+  width: 100%;
+  z-index: 2;
 }
 
 .button-suivant-hour{

@@ -7,6 +7,15 @@
     z-index: 2;
 }
 
+.leaves-age{
+    position: absolute;
+    top: 0;
+    left: 70%;
+    height: auto;
+    width: 100%;
+    z-index: 2;
+}
+
 .yeux_cache{
     position: absolute;
     top: 8%;
