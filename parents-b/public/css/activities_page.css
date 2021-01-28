@@ -6,7 +6,7 @@
     width: 50%;
     height: auto;
     text-align: center;
-    z-index: 2;
+    z-index: 1;
 }
 
 .oya-activities{
@@ -39,6 +39,7 @@
     -ms-transform: translate(-50%, -50%);
     width: 2.2em;
     height: 0.7em;
+    z-index: 1;
 }
 
 .crapa-picto{
