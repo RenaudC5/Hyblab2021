@@ -1,0 +1,125 @@
+/* Three columns side by side */
+.column {
+  float: left;
+  width: 15%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Add some shadows to create a card effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.container {
+  padding: 0 16px;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.name{
+    position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+}
+
+.container h2{
+    margin-top: -100%;
+}
+
+.container{
+    opacity: 0;
+    text-align: center;
+    font-family: Comfortaa, serif;
+}
+
+.nom{
+color : white;
+}
+
+.role{
+color : white;
+}
+
+.etude{
+color : white;
+}
+
+.image:hover ~ .container{
+    opacity: 1;
+}
+
+.container:hover{
+    opacity: 1;
+}
+
+/* .image:hover{
+    opacity: 0.1;
+} */
+
+.solo{
+position: absolute;
+left: 8.54%;
+right: 89.03%;
+top: 85%;
+bottom: 10.62%;
+}
+
+.duo-1{
+/* Vector */
+position: absolute;
+left: 22.99%;
+right: 74.58%;
+top: 50.12%;
+bottom: 45.5%;
+}
+
+.duo-2{
+    /* LinkedIn */
+position: absolute;
+left: 42.5%;
+right: 55.07%;
+top: 50.12%;
+bottom: 45.5%;
+
+}

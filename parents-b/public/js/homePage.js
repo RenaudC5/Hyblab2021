@@ -1,3 +1,10 @@
+$(document).ready(function(){
+
+    $(".more-info").on("click",function(){
+        console.log("test more info");
+    })
+});
+
 let initHome = function(){
     let tl_shooting_stars = anime.timeline({
         easing: 'linear',
