@@ -14,6 +14,61 @@ let initAddress = function(){
         mySlidr.slide('right');
         initHour();
     });
+
+    d3.select(".arianne-2-address").on('click', function (){
+       mySlidr.slide('right');
+       initHour();
+    });
+
+    d3.select(".arianne-3-address").on('click', function (){
+        mySlidr.slide('right');
+        setTimeout(function(){
+            mySlidr.slide('right');
+            }, 1500);
+        initAge();
+    });
+
+    d3.select(".arianne-4-address").on('click', function (){
+        mySlidr.slide('right');
+        setTimeout(function(){
+            mySlidr.slide('right');
+        }, 1500);
+        setTimeout(function(){
+            mySlidr.slide('right');
+        }, 3000);
+        initAccess();
+    });
+
+    d3.select(".arianne-5-address").on('click', function (){
+        mySlidr.slide('right');
+        setTimeout(function(){
+            mySlidr.slide('right');
+        }, 1500);
+        setTimeout(function(){
+            mySlidr.slide('right');
+        }, 3000);
+        setTimeout(function(){
+            mySlidr.slide('up');
+        }, 4500);
+        initFaunaFlora();
+    });
+
+    d6.select(".arianne-6-address").on('click', function (){
+        mySlidr.slide('right');
+        setTimeout(function(){
+            mySlidr.slide('right');
+        }, 1500);
+        setTimeout(function(){
+            mySlidr.slide('right');
+        }, 3000);
+        setTimeout(function(){
+            mySlidr.slide('up');
+        }, 4500);
+        setTimeout(function(){
+            mySlidr.slide('right');
+        }, 1500);
+        initActivities();
+    });
 };
 
 
