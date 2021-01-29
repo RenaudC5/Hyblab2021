@@ -4,6 +4,7 @@ let initHome = function(){
         //Doit ouvrir la page qui sommes nous
     });
 
+      
     let tl_shooting_stars = anime.timeline({
         easing: 'linear',
         loop: true,
