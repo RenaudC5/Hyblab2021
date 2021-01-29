@@ -53,7 +53,7 @@ let initAddress = function(){
         initFaunaFlora();
     });
 
-    d6.select(".arianne-6-address").on('click', function (){
+    d3.select(".arianne-6-address").on('click', function (){
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -66,7 +66,7 @@ let initAddress = function(){
         }, 4500);
         setTimeout(function(){
             mySlidr.slide('right');
-        }, 1500);
+        }, 6000);
         initActivities();
     });
 };

@@ -38,6 +38,50 @@ let initHour = function(){
         });
         tl_suivant_hour_over.pause();
     });
+
+    d3.select(".arianne-1-hour").on('click', function (){
+        mySlidr.slide('left');
+        initAddress();
+    });
+
+    d3.select(".arianne-3-hour").on('click', function (){
+        mySlidr.slide('right');
+        initAge();
+    });
+
+    d3.select(".arianne-4-hour").on('click', function (){
+        mySlidr.slide('right');
+        setTimeout(function(){
+            mySlidr.slide('right');
+        }, 1500);
+        initAccess();
+    });
+
+    d3.select(".arianne-5-hour").on('click', function (){
+        mySlidr.slide('right');
+        setTimeout(function(){
+            mySlidr.slide('right');
+        }, 1500);
+        setTimeout(function(){
+            mySlidr.slide('up');
+        }, 3000);
+        initFaunaFlora();
+    });
+
+    d3.select(".arianne-6-hour").on('click', function (){
+        mySlidr.slide('right');
+        setTimeout(function(){
+            mySlidr.slide('right');
+        }, 1500);
+        setTimeout(function(){
+            mySlidr.slide('up');
+        }, 3000);
+        setTimeout(function(){
+            mySlidr.slide('right');
+        }, 4500);
+        initActivities();
+    });
+
 };
 var s = null;
 var rayon = null;
