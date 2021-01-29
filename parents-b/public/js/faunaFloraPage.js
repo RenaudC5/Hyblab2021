@@ -83,3 +83,39 @@ let initFaunaFlora = function(){
         initActivities();
     });
 };
+
+$(document).ready(function(){
+
+    // $(".dropableCell-fauna").on('drop',function(event){
+    //     //gestion de l'ajout / remove de l'image
+    // })
+
+    $( ".image-drop-fauna" ).draggable({
+         tolerance: 'fit',
+         revert: "invalid"
+    });
+
+    $(".dropableCell-fauna").droppable({
+        accept: ".image-drop-fauna",
+        hoverClass: "ui-state-active",
+            drop: function( event, ui ) {
+               var droppable = $(this);
+               var draggable = ui.draggable;
+               // Move draggable into droppable
+               draggable.appendTo(droppable);
+               draggable.css({top: '0px', left: '0px'});
+            }
+    })
+
+    $(".images-base-fauna").droppable({
+        accept: ".image-drop-fauna",
+        drop: function( event, ui ) {
+           var droppable = $(this);
+           var draggable = ui.draggable;
+           // Move draggable into droppable
+           draggable.css({top: '0px', left: '0px'});
+           draggable.appendTo(droppable);
+        }
+    })
+})
+
