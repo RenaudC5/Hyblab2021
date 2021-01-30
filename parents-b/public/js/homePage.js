@@ -29,6 +29,11 @@ let initHome = function(){
         loop:true
     });
 
+    d3.select(".button-histoire").on("click", function (){
+        mySlidr.slide('histoire-page');
+        initHistoire();
+    });
+
     d3.select('.button-begin').on('mouseover', function (){
 
         tl_begin_over
@@ -85,12 +90,12 @@ let initHome = function(){
             .add({
                 targets: ".oya-home-go",
                 opacity: 1,
-                duration: 1000,
-                offset: "-=1000",
+                duration: 500,
+                offset: "-=800",
                 easing: "linear"
             })
             .add({
-                delay: 1000
+                delay: 500
             })
             .add({
                 targets: ".talking-bubble-home",
@@ -109,7 +114,7 @@ let initHome = function(){
                 targets: ".oya-hello",
                 translateX: '80%',
                 scale: 0.6,
-                duration: 1000,
+                duration: 500,
             })
             .add({
                 targets: ".rocket-hello",
@@ -124,12 +129,12 @@ let initHome = function(){
             .add({
                 targets: ".rocket-hello",
                 scale: 1,
-                duration: 1000,
+                duration: 500,
             })
             .add({
                 targets: ".rocket-hello",
                 translateY: '40%',
-                duration: 500,
+                duration: 750,
                 easing:"easeOutCirc"
             })
             .add({
@@ -141,16 +146,34 @@ let initHome = function(){
                 targets: ".oya-hello",
                 translateX: "10%",
                 scale: 0,
-                duration: 1000,
+                duration: 750,
             })
             .add({
                 targets: ".rocket-hello",
                 translateY: "-150%",
-                duration: 1000,
+                duration: 500,
             })
+
             .finished.then(() => {
             mySlidr.slide('down');
             initAddress();
         });
     });
 };
+
+let resetHome = function(){
+    d3.select('.oya-hello')
+        .style("transform", "");
+
+    d3.select('.rocket-hello')
+        .style("transform", "")
+        .style("opacity", 0);
+
+    d3.select('.button-begin')
+        .style("transform", "")
+        .style("opacity", 1);
+
+    d3.select('.catch-phrase')
+        .style("transform", "")
+        .style("opacity", 1);
+}

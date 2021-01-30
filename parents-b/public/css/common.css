@@ -1,4 +1,3 @@
-
 /* ------- Important ! Regardez bien à la fin de ce CSS pour des règles permettant de ----------- */
 /* contraindre le format des slides affichés sur la page web */
 
@@ -10,9 +9,11 @@
 }
 
 /* ---------------------- Font -------------------------- */
+.font-xs{font-size: 0.15em;}
 .font-s{font-size: 0.2em;}
+.font-sm{font-size: 0.25em;}
 .font-m{font-size: 0.3em;}
-.font-big-button{font-size: calc(1vh + 1vw);}
+.font-big-button{font-size: 0.15em;}
 
 /* -------------------------- Colors -------------------------------- */
 .white{color: white;}
@@ -34,6 +35,7 @@
 /* ----------------------------------------------------------------------- */
 /* button default style */
 button{
+    outline: none;
     text-align: center;
     cursor: pointer;
     border: 0;
@@ -69,8 +71,8 @@ button{
     width: 14%;
     height: 8%;
     left: 43%;
-    top: 82%;
-    z-index: 2;
+    top: 87%;
+    z-index: 4;
     border: 0.3em solid #ffe9de;
     font-weight: bold;
 }
@@ -91,6 +93,32 @@ button{
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     z-index: -1;
+}
+
+.fil-arianne{
+    position: absolute;
+    top: 5%;
+    left: 96%;
+    width: 1.5%;
+    height: 34%;
+    z-index: 7;
+}
+.fil-arianne-img{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 7;
+}
+
+.button-fil-arianne{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 8;
 }
 
 .hidden{
@@ -164,3 +192,4 @@ dessus de l'apect ratio 16/9 */
         font-size: 12vh;
     }
 }
+
