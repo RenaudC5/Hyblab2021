@@ -183,4 +183,6 @@ let resetHome = function(){
     d3.select('.catch-phrase')
         .style("transform", "")
         .style("opacity", 1);
+
+    mySlidr.slider("value", mySlidr.slider("option", "min") )
 }
