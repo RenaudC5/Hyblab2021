@@ -2,12 +2,14 @@ let initHistoire = function(){
 
     d3.select('.accueil').on('click', function (){
         mySlidr.slide('home-page');
+        mySlidr.slider("value", mySlidr.slider("option", "min") );
         initHome();
     });
 
     d3.select('.logoAccueil').on('click', function (){
         mySlidr.slide('home-page');
         initHome();
+        resetHome();
     });
 
     document.getElementById("dialog2").hidden = true;

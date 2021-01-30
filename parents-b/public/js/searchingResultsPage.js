@@ -1,17 +1,14 @@
 let initSearchingResults = function(){
+
+    setTimeout(function(){
+        mySlidr.slide('down');
+        initResults();
+    }, 4000);
+
+
     //-----------AUDIO--------------
     document.getElementById('activite_audio').pause();
 
-    let buutonVol = document.getElementById("volumeResult1");
-    buutonVol.setAttribute("src", "./img/common/volume_on.svg");
-
-    if(isSonOn){
-        document.getElementById('result1_audio').play();
-        document.getElementById('result1_audio').loop = false;
-    }
-    else{
-        buutonVol.setAttribute("src", "./img/common/volume_off.svg");
-    }
     d3.selectAll('.volume').on('click', function (){
         if(isSonOn){
             this.setAttribute("src", "./img/common/volume_off.svg");
@@ -25,9 +22,6 @@ let initSearchingResults = function(){
         }
     }); 
 
-    setTimeout(function(){
-        mySlidr.slide('down');
-        initResults();
-    }, 4000);
+
 };
 

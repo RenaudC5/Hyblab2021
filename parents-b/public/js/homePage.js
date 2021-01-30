@@ -1,4 +1,5 @@
 let initHome = function(){
+
     //-----------AUDIO--------------
     //Doit mettre les audio de n'importe quelle page en pause
     document.getElementById('adresse_audio').pause();
@@ -39,6 +40,12 @@ let initHome = function(){
         //Doit ouvrir la page qui sommes nous
     });
 
+    $(".more-info").on("click",function(){
+        mySlidr.slide('up');
+        initMoreInfo();
+    })
+
+
       
     let tl_shooting_stars = anime.timeline({
         easing: 'linear',
@@ -69,8 +76,6 @@ let initHome = function(){
         mySlidr.slide('histoire-page');
         initHistoire();
     });
-
-    
 
     d3.select('.button-begin').on('mouseover', function (){
 
@@ -103,11 +108,13 @@ let initHome = function(){
     });
 
     d3.select('.button-begin').on('click', function (){
+
+        document.getElementById('button-begin').disabled = true;
+        document.getElementById('button-histoire').disabled = true;
+
         let tl_begin = anime.timeline({
             easing: 'easeOutCubic'
         });
-
-        document.getElementById("button-histoire").hidden = true;
 
         tl_begin
             .add({
@@ -130,12 +137,12 @@ let initHome = function(){
             .add({
                 targets: ".oya-home-go",
                 opacity: 1,
-                duration: 1000,
-                offset: "-=1000",
+                duration: 500,
+                offset: "-=800",
                 easing: "linear"
             })
             .add({
-                delay: 1000
+                delay: 1500
             })
             .add({
                 targets: ".talking-bubble-home",
@@ -154,7 +161,7 @@ let initHome = function(){
                 targets: ".oya-hello",
                 translateX: '80%',
                 scale: 0.6,
-                duration: 1000,
+                duration: 500,
             })
             .add({
                 targets: ".rocket-hello",
@@ -169,12 +176,12 @@ let initHome = function(){
             .add({
                 targets: ".rocket-hello",
                 scale: 1,
-                duration: 1000,
+                duration: 500,
             })
             .add({
                 targets: ".rocket-hello",
                 translateY: '40%',
-                duration: 500,
+                duration: 750,
                 easing:"easeOutCirc"
             })
             .add({
@@ -186,14 +193,13 @@ let initHome = function(){
                 targets: ".oya-hello",
                 translateX: "10%",
                 scale: 0,
-                duration: 1000,
+                duration: 750,
             })
             .add({
                 targets: ".rocket-hello",
                 translateY: "-150%",
-                duration: 1000,
+                duration: 500,
             })
-
             .finished.then(() => {
             mySlidr.slide('down');
             initAddress();
@@ -201,3 +207,25 @@ let initHome = function(){
     });
 };
 
+let resetHome = function(){
+    document.getElementById('button-begin').disabled = false;
+    document.getElementById('button-histoire').disabled = false;
+
+
+    d3.select('.oya-hello')
+        .style("transform", "");
+
+    d3.select('.rocket-hello')
+        .style("transform", "")
+        .style("opacity", 0);
+
+    d3.select('.button-begin')
+        .style("transform", "")
+        .style("opacity", 1);
+
+    d3.select('.catch-phrase')
+        .style("transform", "")
+        .style("opacity", 1);
+
+    mySlidr.slider("value", mySlidr.slider("option", "min") )
+}

@@ -32,6 +32,7 @@ let initFaunaFlora = function(){
     d3.select('.logoAccueil5').on('click', function (){
         mySlidr.slide('home-page');
         initHome();
+        resetHome();
     });
 
     d3.select('.button-suivant-fauna-flora').on('click', function (){
@@ -121,6 +122,7 @@ let initFaunaFlora = function(){
 
 $(document).ready(function(){
 
+
     // $(".dropableCell-fauna").on('drop',function(event){
     //     //gestion de l'ajout / remove de l'image
     // })
@@ -153,4 +155,3 @@ $(document).ready(function(){
         }
     })
 })
-
