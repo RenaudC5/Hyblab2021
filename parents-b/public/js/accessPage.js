@@ -1,6 +1,6 @@
 let initAccess = function(){
      //--------------AUDIO-----------
-     document.getElementsByClassName('age_audio').pause();
+     document.getElementById('age_audio').pause();
 
      let buutonVol = document.getElementById("volumeAccess");
      buutonVol.setAttribute("src", "./img/common/volume_on.svg");
