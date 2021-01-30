@@ -1,6 +1,6 @@
 let initFaunaFlora = function(){
     d3.select('.button-suivant-fauna-flora').on('click', function (){
-        tl_suivant_fauna_flora_over.pause();
+        // tl_suivant_fauna_flora_over.pause();
         mySlidr.slide('right');
         initActivities();
     });

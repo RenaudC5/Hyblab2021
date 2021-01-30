@@ -6,7 +6,9 @@ let mySlidr = slidr.create('slidr',{
     keyboard: false,
     overflow: true,
     timing: { 'linear': '1.5s ease-out' }
-  })
+})
+
+    .add('v', ['home-page','address-page','more-infos-page', 'home-page'], 'linear')
     .add('v', ['home-page', 'address-page', 'home-page'], 'linear')
     .add('h', ['address-page', 'hour-page', 'age-page', 'access-page', 'address-page'], 'linear')
     .add('v', ['access-page', 'fauna-flora-page', 'access-page'], 'linear')

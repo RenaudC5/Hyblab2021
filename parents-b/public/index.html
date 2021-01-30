@@ -3,10 +3,11 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="./img/common/logo.svg"/>
+    <link rel="icon" type="image/png" href="./img/common/logo-presentation.svg"/>
     <title>Hyblab 2020</title>
     <link href="https://fonts.googleapis.com/css?family=Mulish" rel='stylesheet'>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/more_infos.css">
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
     <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -22,6 +23,7 @@
     <script src="js/accessPage.js" defer></script>
     <script src="js/homePage.js" defer></script>
     <script src="js/index.js" defer></script>
+    <script src="js/more_infos.js" defer></script>
     <!-- For address page -->
     <script id="google_maps"></script>
     <script>
@@ -39,7 +41,7 @@
 <div id="container">
     <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
     <main id="slidr">
-        <section data-slidr="home-page">
+        <section data-slidr="home-page" style="display:none">
             <img class="page" src="img/home_page/background.svg" alt="Page d'accueil">
             <img class="trees-planet-home" src="img/home_page/arbres_homes_cropped.gif" alt="Arbres en mouvement et Planète">
             <img class="planet-home" src="img/home_page/planet.svg" alt="Planete">
@@ -57,7 +59,7 @@
             <p class="catch-phrase font-s dark-purple">Trop de choix ? Je vais vous aider à trouver votre parc idéal !</p>
         </section>
 
-        <section data-slidr="address-page">
+        <section data-slidr="address-page" style="display:none">
             <img class="page" src="img/address_page/address_page.svg" alt="Page de renseignement de votre location">
             <img class="address-robot" id="address-robot" src="./img/address_page/Robot_09.gif" alt="Oya">
             <div class="addresses-main-buttons">
@@ -84,7 +86,7 @@
             </div>
         </section>
 
-        <section data-slidr="hour-page">
+        <section data-slidr="hour-page" style="display:none">
             <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
             <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
             <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
@@ -108,7 +110,7 @@
             <button class="button-suivant-hour button-suivant font-s dark-purple background-beige">SUIVANT</button>
         </section>
 
-        <section data-slidr="age-page">
+        <section data-slidr="age-page" style="display:none">
             <img class="logo-name" src="img/common/logo_name.svg" alt="Logo Sequ'Oya">
             <img class="more-info" src="img/common/more_info.svg" alt="Plus d'informations">
             <img class="volume-on" src="img/common/volume_on.svg" alt="Volume On">
@@ -143,7 +145,7 @@
             <button class="button-suivant-age button-suivant font-s dark-purple background-beige">SUIVANT</button>
         </section>
 
-        <section data-slidr="access-page">
+        <section data-slidr="access-page" style="display:none">
                 <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
                 <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
                 <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
@@ -187,7 +189,7 @@
                 <button class="button-suivant-access button-suivant font-s dark-purple background-beige">SUIVANT</button>
             </section>
 
-            <section data-slidr="fauna-flora-page">
+            <section data-slidr="fauna-flora-page"  style="display:none">
                 <img class="planet-fauna-flora" src="img/fauna_flora_page/green-planet.svg" alt="Planete">
         <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
         <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
@@ -218,7 +220,7 @@
                     <button class="button-suivant-fauna-flora button-suivant font-s dark-purple background-beige">SUIVANT</button>
                 </section>
 
-        <section data-slidr="activities-page">
+        <section data-slidr="activities-page" style="display:none">
             <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
             <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
             <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
@@ -252,7 +254,7 @@
             <button id="searchData" class="button-suivant-activities button-suivant font-s dark-purple background-beige">SUIVANT</button>
         </section>
 
-        <section data-slidr="searching-results-page">
+        <section data-slidr="searching-results-page"  style="display:none">
             <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
             <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
             <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
@@ -262,9 +264,300 @@
             <img id="oya-searching-results" src="img/searching_results_page/robot_searching_results.gif" alt="Robot qui recherche les résultats">
         </section>
 
-        <section data-slidr="results-page">
+        <section data-slidr="results-page"  style="display:none">
             <img class="page" src="img/results_page.svg" alt="Page d'animation de recherche des résultats">
             <button class="button-next button-next-results font-s white background-beige">Vers la page d'accueil</button>
+        </section>
+
+        <section data-slidr="more-infos-page"  style="display:none">
+            <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
+            <img class="go-back" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
+            <img class="page" src="img/more-infos/more_infos.svg" alt="Page de présentation des membres">
+            <button id="back-menu" name="button">Back to menu</button>
+            <p class="notre-equipe">Notre équipe : </p>
+
+            <div class="row">
+                <div class="equipe">
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Thibaut.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Thibaut Perrouin
+                                    </p>
+                                    <p class="role">
+                                        Developpeur Web
+                                    </p>
+                                    <p class="etude">
+                                        Étudiant en Ingénierie Informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://github.com/"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                        <a href="https://github.com/"><img src="./img/photos/svg/linkedin.svg" alt="Log de instagram" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Soline.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Soline Ponsard
+                                    </p>
+                                    <p class="role">
+                                        Développeur Web
+                                    </p>
+                                    <p class="etude">
+                                        Etudiante en ingénierie informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://github.com/"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                        <a href="https://github.com/"><img src="./img/photos/svg/linkedin.svg" alt="Log de instagram" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Luca.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Luca Maillet
+                                    </p>
+                                    <p class="role">
+                                        Designer graphique
+                                    </p>
+                                    <p class="etude">
+                                        Etudiant en direction artistique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://github.com/"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                        <a href="https://github.com/"><img src="./img/photos/svg/linkedin.svg" alt="Log de instagram" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Camille.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Camille Barthez
+                                    </p>
+                                    <p class="role">
+                                        Développeur Web
+                                    </p>
+                                    <p class="etude">
+                                        Étudiant en Ingénierie Informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://github.com/"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                        <a href="https://github.com/"><img src="./img/photos/svg/linkedin.svg" alt="Log de instagram" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Colin.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Colin Renaud
+                                    </p>
+                                    <p class="role">
+                                        Développeur web
+                                    </p>
+                                    <p class="etude">
+                                        Étudiant en Ingénierie Informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://github.com/"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                        <a href="https://github.com/"><img src="./img/photos/svg/linkedin.svg" alt="Log de instagram" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Abi.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Abigaëlle Rontard
+                                    </p>
+                                    <p class="role">
+                                        Designer graphique
+                                    </p>
+                                    <p class="etude">
+                                        Etudiante en direction artistique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://github.com/"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                        <a href="https://github.com/"><img src="./img/photos/svg/linkedin.svg" alt="Log de instagram" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Nathan.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Nathan Genaudeau
+                                    </p>
+                                    <p class="role">
+                                        Développeur Web
+                                    </p>
+                                    <p class="etude">
+                                        Étudiant en Ingénierie Informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://github.com/"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                        <a href="https://github.com/"><img src="./img/photos/svg/linkedin.svg" alt="Log de instagram" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Marine.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Marine Prime
+                                    </p>
+                                    <p class="role">
+                                        Chargée de communication
+                                    </p>
+                                    <p class="etude">
+                                        Etudiante en communication & médias
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://github.com/"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                        <a href="https://github.com/"><img src="./img/photos/svg/linkedin.svg" alt="Log de instagram" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Loic.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Loïc Boursin
+                                    </p>
+                                    <p class="role">
+                                        Développeur Web
+                                    </p>
+                                    <p class="etude">
+                                        Étudiant en Ingénierie Informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://github.com/"><img src="./img/photos/svg/loic.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Mael.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Maël Sortant
+                                    </p>
+                                    <p class="role">
+                                        Designer graphique
+                                    </p>
+                                    <p class="etude">
+                                        Etudiant en direction artistique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://github.com/"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                        <a href="https://github.com/"><img src="./img/photos/svg/linkedin.svg" alt="Log de instagram" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Laurine.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Laurine Le Guern
+                                    </p>
+                                    <p class="role">
+                                        Chargée de communication
+                                    </p>
+                                    <p class="etude">
+                                        Étudiante en communication & médias
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://github.com/"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                        <a href="https://github.com/"><img src="./img/photos/svg/linkedin.svg" alt="Log de instagram" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Guillaume.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Guillaume Moles
+                                    </p>
+                                    <p class="role">
+                                        Développeur Web
+                                    </p>
+                                    <p class="etude">
+                                        Étudiant en  Ingénierie Informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://github.com/"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                        <a href="https://github.com/"><img src="./img/photos/svg/linkedin.svg" alt="Log de instagram" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
         </section>
     </main>
 </div>
