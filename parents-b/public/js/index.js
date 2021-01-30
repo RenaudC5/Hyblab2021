@@ -11,7 +11,7 @@ let mySlidr = slidr.create('slidr',{
     .add('v', ['home-page','address-page','more-infos-page','home-page'], 'linear')
     .add('h', ['address-page', 'hour-page', 'age-page', 'access-page', 'address-page'], 'linear')
     .add('v', ['access-page', 'fauna-flora-page', 'access-page'], 'linear')
-    .add('h', ['fauna-flora-page', 'activities-page', 'searching-results-page', 'fauna-flora-page'], 'linear')
+    .add('h', ['activities-page','fauna-flora-page','activities-page', 'searching-results-page', 'activities-page'], 'linear')
     .add('v', ['searching-results-page', 'results-page', 'searching-results-page'], 'linear')
     .add('h', ['results-page', 'home-page', 'results-page'], 'fade')
     .start();

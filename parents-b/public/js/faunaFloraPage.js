@@ -1,14 +1,15 @@
 let initFaunaFlora = function(){
-    d3.select('.button-suivant-fauna-flora').on('click', function (){
-        // tl_suivant_fauna_flora_over.pause();
-        mySlidr.slide('right');
-        initActivities();
-    });
 
     //Bouton Suivant
     let tl_suivant_fauna_flora_over = anime.timeline({
         easing: 'linear',
         loop:true
+    });
+
+    d3.select('.button-suivant-fauna-flora').on('click', function (){
+        tl_suivant_fauna_flora_over.pause();
+        mySlidr.slide('right');
+        initActivities();
     });
 
     d3.select('.button-suivant-fauna-flora').on('mouseover', function (){
@@ -42,6 +43,7 @@ let initFaunaFlora = function(){
 };
 
 $(document).ready(function(){
+
 
     // $(".dropableCell-fauna").on('drop',function(event){
     //     //gestion de l'ajout / remove de l'image

@@ -120,11 +120,26 @@ color : white;
 
 .logo-presentation{
 width: 22%;
+margin: 3%;
 margin-top: 8%;
+
 }
 
 .equipe{
     margin-left: 4%;
+}
+.go-back-more-infos:hover{
+    cursor: pointer
+}
+#more-info:hover{
+    cursor: pointer
+}
+.go-back-more-infos{
+    position: absolute;
+    top: 2.4%;
+    left: 7%;
+    width: 2%;
+    z-index: 2;
 }
 
 /* .middle@media screen and (min-aspect-ratio: 16 / 9){
