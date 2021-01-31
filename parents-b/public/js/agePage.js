@@ -30,10 +30,7 @@ let initAge = function(){
             isSonOn = Boolean(true);
             document.getElementById('age_audio').play(); 
         }
-    }); 
-
-    console.log(isRobotOn);
-    
+    });    
 
     //--------------HEADER-------------
     d3.select('.logoAccueil3').on('click', function (){
