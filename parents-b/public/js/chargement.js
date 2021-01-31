@@ -1,15 +1,7 @@
 $(document).ready(function(){
 
     //-----------AUDIO--------------
-    //Doit mettre les audio de n'importe quelle page en pause lors de F5
-    document.getElementById('adresse_audio').pause();
-    document.getElementById('hour_audio').pause();
-    document.getElementById('age_audio').pause();
-    document.getElementById('access_audio').pause();
-    document.getElementById('fauna_audio').pause();
-    document.getElementById('result1_audio').pause();
-    document.getElementById('result2_audio').pause();
-    document.getElementById('activite_audio').pause();
+    muteAll();
 
 
   $("#home")[0].style.display = "none";

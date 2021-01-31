@@ -1,15 +1,8 @@
 let initHome = function(){
 
     //-----------AUDIO--------------
-    //Doit mettre les audio de n'importe quelle page en pause lors du clic sur le logo
-    document.getElementById('adresse_audio').pause();
-    document.getElementById('hour_audio').pause();
-    document.getElementById('age_audio').pause();
-    document.getElementById('access_audio').pause();
-    document.getElementById('fauna_audio').pause();
-    document.getElementById('result1_audio').pause();
-    document.getElementById('result2_audio').pause();
-    document.getElementById('activite_audio').pause();
+
+    
 
     let buutonVol = document.getElementById("volumeDebut");
     buutonVol.setAttribute("src", "./img/common/volume_on.svg");
@@ -204,6 +197,7 @@ let initHome = function(){
 };
 
 let resetHome = function(){
+    muteAll();
 
     document.getElementById('button-begin').disabled = false;
     document.getElementById('button-histoire').disabled = false;

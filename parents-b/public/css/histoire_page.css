@@ -30,11 +30,8 @@
 
 .suivant_histoire{
     position: absolute;
-    top: 90%;
-    left: 38%;
-    width: 23%;
-    z-index: 2;
-    font-size: 18%;
-    border: 0.2em solid #ffe9de;
+    top: 84%;
+    left: 74%;
+    width: 4%;
     z-index: 4;
 }

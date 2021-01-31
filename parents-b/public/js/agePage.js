@@ -3,7 +3,6 @@ const PETIT = 4.5;
 const MOYEN = 7.5;
 const GRAND = 10.5;
 
-
 let initAge = function(){
 
     //--------------AUDIO-----------
@@ -32,6 +31,8 @@ let initAge = function(){
             document.getElementById('age_audio').play(); 
         }
     }); 
+
+    console.log(isRobotOn);
     
 
     //--------------HEADER-------------
@@ -197,7 +198,7 @@ let initAge = function(){
         direction: 'alternate',
         delay : 4500,
         duration: 1500,
-        loop: false
+        loop: false,
     });
 
     anime({
