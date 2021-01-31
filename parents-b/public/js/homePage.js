@@ -10,15 +10,6 @@ let initHome = function(){
     document.getElementById('result1_audio').pause();
     document.getElementById('result2_audio').pause();
 
-
-    //Le premier son doit avoir un listener
-    document.addEventListener('click', musicPlay);
-    function musicPlay() {
-        document.getElementById('debut_audio').play();
-        document.getElementById('debut_audio').loop = false;
-        document.removeEventListener('click', musicPlay);
-    };
-
     let buutonVol = document.getElementById("volumeDebut");
     buutonVol.setAttribute("src", "./img/common/volume_on.svg");
     
@@ -44,8 +35,6 @@ let initHome = function(){
         mySlidr.slide('up');
         initMoreInfo();
     })
-
-
       
     let tl_shooting_stars = anime.timeline({
         easing: 'linear',
@@ -108,6 +97,10 @@ let initHome = function(){
     });
 
     d3.select('.button-begin').on('click', function (){
+
+        // Lancement audio apres clic sur GO
+        document.getElementById('debut_audio').play();
+        document.getElementById('debut_audio').loop = false;
 
         document.getElementById('button-begin').disabled = true;
         document.getElementById('button-histoire').disabled = true;
