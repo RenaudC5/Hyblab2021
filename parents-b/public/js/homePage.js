@@ -1,7 +1,7 @@
 let initHome = function(){
 
     //-----------AUDIO--------------
-    //Doit mettre les audio de n'importe quelle page en pause
+    //Doit mettre les audio de n'importe quelle page en pause lors du clic sur le logo
     document.getElementById('adresse_audio').pause();
     document.getElementById('hour_audio').pause();
     document.getElementById('age_audio').pause();
@@ -9,6 +9,7 @@ let initHome = function(){
     document.getElementById('fauna_audio').pause();
     document.getElementById('result1_audio').pause();
     document.getElementById('result2_audio').pause();
+    document.getElementById('activite_audio').pause();
 
     let buutonVol = document.getElementById("volumeDebut");
     buutonVol.setAttribute("src", "./img/common/volume_on.svg");
@@ -104,6 +105,8 @@ let initHome = function(){
 
         document.getElementById('button-begin').disabled = true;
         document.getElementById('button-histoire').disabled = true;
+        document.getElementById('more-info').disabled = true;
+        document.getElementById('button-histoire').hidden = true;
 
         let tl_begin = anime.timeline({
             easing: 'easeOutCubic'
@@ -201,8 +204,11 @@ let initHome = function(){
 };
 
 let resetHome = function(){
+
     document.getElementById('button-begin').disabled = false;
     document.getElementById('button-histoire').disabled = false;
+    document.getElementById('more-info').disabled = false;
+    document.getElementById('button-histoire').hidden = false;
 
 
     d3.select('.oya-hello')
