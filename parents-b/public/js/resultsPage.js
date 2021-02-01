@@ -1,39 +1,48 @@
-let initResults = function(){
-    //-----------AUDIO--------------
-    document.getElementById('result1_audio').pause();
+let initResults = function() {
 
-    let buutonVol = document.getElementById("volumeResult2");
-    buutonVol.setAttribute("src", "./img/common/volume_on.svg");
+    // ------------------ AUDIO --------------------
+    muteAll();
 
-    if(isSonOn){
+    let buttonVol = document.getElementById("volumeResult2");
+    buttonVol.setAttribute("src", "./img/common/volume_on.svg");
+
+    if (isSonOn) {
         document.getElementById('result2_audio').play();
         document.getElementById('result2_audio').loop = false;
     }
-    else{
-        buutonVol.setAttribute("src", "./img/common/volume_off.svg");
-    }
-    d3.selectAll('.volume').on('click', function (){
-        if(isSonOn){
+    else buttonVol.setAttribute("src", "./img/common/volume_off.svg");
+
+
+    d3.selectAll('#volumeResult2').on('click', function() {
+        if (isSonOn) {
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);
-            document.getElementById('result2_audio').pause(); 
-        }
-        else{
+            document.getElementById('result2_audio').pause();
+        } else {
             this.setAttribute("src", "./img/common/volume_on.svg");
             isSonOn = Boolean(true);
-            document.getElementById('result2_audio').play(); 
+            document.getElementById('result2_audio').play();
         }
-    }); 
-   
-
-    d3.select('.logoAccueil7').on('click', function (){
-        mySlidr.slide('home-page');
-        initHome();
-        resetHome();
     });
 
-    d3.select('.button-suivant-results').on('click', function (){
+    // --------------------- SLIDE --------------------
+    // Retour à l'accueil
+    d3.select('.logoAccueil7').on('click', function() {
+        muteAll();
+        mySlidr.slide('home-page');
+        resetHome();
+        setTimeout(function() {
+            initHome();
+        }, 1200);
+    });
+
+
+    // Sliding du bouton "Suivant"
+    d3.select('.button-suivant-results').on('click', function() {
+        muteAll();
         mySlidr.slide('right');
-        initCredits();
+        setTimeout(function() {
+            initCredits();
+        }, 1200);
     });
 };

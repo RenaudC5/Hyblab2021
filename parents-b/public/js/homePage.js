@@ -2,55 +2,48 @@ let initHome = function(){
 
     //-----------AUDIO--------------
     //Doit mettre les audio de n'importe quelle page en pause
-    document.getElementById('adresse_audio').pause();
-    document.getElementById('hour_audio').pause();
-    document.getElementById('age_audio').pause();
-    document.getElementById('access_audio').pause();
-    document.getElementById('fauna_audio').pause();
-    document.getElementById('result1_audio').pause();
-    document.getElementById('result2_audio').pause();
-
+    muteAll();
 
     //Le premier son doit avoir un listener
-    document.addEventListener('click', musicPlay);
     function musicPlay() {
         document.getElementById('debut_audio').play();
         document.getElementById('debut_audio').loop = false;
         document.removeEventListener('click', musicPlay);
-    };
+    }
 
-    let buutonVol = document.getElementById("volumeDebut");
-    buutonVol.setAttribute("src", "./img/common/volume_on.svg");
-    
-    d3.selectAll('.volume').on('click', function (){
-        if(isSonOn){
+    let buttonVol = document.getElementById("volumeDebut");
+    buttonVol.setAttribute("src", "./img/common/volume_on.svg");
+
+
+    d3.selectAll('#volumeDebut').on('click', function() {
+        if (isSonOn) {
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);
-            document.getElementById('debut_audio').pause(); 
-        }
-        else{
+            document.getElementById('debut_audio').pause();
+        } else {
             this.setAttribute("src", "./img/common/volume_on.svg");
             isSonOn = Boolean(true);
-            document.getElementById('debut_audio').play(); 
+            document.getElementById('debut_audio').play();
         }
-    }); 
-    
-
-    d3.select('.more-info').on('click', function (){
-        //Doit ouvrir la page qui sommes nous
     });
 
-    $(".more-info").on("click",function(){
+
+    // ------------------ SLIDING & ANIMATIONS -----------------
+    // Sliding vers la page more-info
+    $(".more-info").on("click", function() {
+        muteAll();
         mySlidr.slide('up');
         initMoreInfo();
-    })
+    });
 
 
-      
+    // Animation des comètes
     let tl_shooting_stars = anime.timeline({
         easing: 'linear',
         loop: true,
     });
+
+
     tl_shooting_stars
         .add({
             targets: ".shooting-stars",
@@ -65,20 +58,25 @@ let initHome = function(){
         })
         .add({
             delay: 4000,
-        })
+        });
 
-    let tl_begin_over = anime.timeline({
+    // Animation de la fusée lors du click sur le bouton "Go"
+    var tl_begin_over = anime.timeline({
         easing: 'linear',
         loop:true
     });
 
-    d3.select(".button-histoire").on("click", function (){
+
+    d3.select(".button-histoire").on("click", function() {
+        muteAll();
         mySlidr.slide('histoire-page');
-        initHistoire();
+        setTimeout(function() {
+            initHistoire();
+        }, 1200);
     });
 
-    d3.select('.button-begin').on('mouseover', function (){
 
+    d3.select('.button-begin').on('mouseover', function() {
         tl_begin_over
             .add({
                 targets: ".button-begin",
@@ -94,10 +92,11 @@ let initHome = function(){
                 targets: ".button-begin",
                 scale: 1,
                 duration: 500
-            })
+            });
     });
 
-    d3.select('.button-begin').on('mouseleave' ,function (){
+
+    d3.select('.button-begin').on('mouseleave', function() {
         anime({
             targets: ".button-begin",
             scale: 1,
@@ -107,14 +106,18 @@ let initHome = function(){
         tl_begin_over.pause();
     });
 
-    d3.select('.button-begin').on('click', function (){
-
+    d3.select('.button-begin').on('click', function() {
+        if (isSonOn) musicPlay();
         document.getElementById('button-begin').disabled = true;
         document.getElementById('button-histoire').disabled = true;
+        document.getElementById('more-info').disabled = true;
+        document.getElementById('button-histoire').hidden = true;
+
 
         let tl_begin = anime.timeline({
             easing: 'easeOutCubic'
         });
+
 
         tl_begin
             .add({
@@ -142,7 +145,7 @@ let initHome = function(){
                 easing: "linear"
             })
             .add({
-                delay: 1500
+                delay: 3500
             })
             .add({
                 targets: ".talking-bubble-home",
@@ -201,31 +204,47 @@ let initHome = function(){
                 duration: 500,
             })
             .finished.then(() => {
+            anime({
+                targets: ".button-begin",
+                scale: 1,
+                duration: 50,
+                ease: 'linear'
+            });
+            tl_begin_over.pause();
             mySlidr.slide('down');
-            initAddress();
+            setTimeout(function() {
+                initAddress();
+            }, 1200);
         });
     });
 };
 
-let resetHome = function(){
+
+// Reset la page lorsqu'on revient sur la page home
+let resetHome = function() {
     document.getElementById('button-begin').disabled = false;
     document.getElementById('button-histoire').disabled = false;
+    document.getElementById('more-info').disabled = false;
+    document.getElementById('button-histoire').hidden = false;
 
 
     d3.select('.oya-hello')
         .style("transform", "");
 
+
     d3.select('.rocket-hello')
         .style("transform", "")
         .style("opacity", 0);
+
 
     d3.select('.button-begin')
         .style("transform", "")
         .style("opacity", 1);
 
+
     d3.select('.catch-phrase')
         .style("transform", "")
         .style("opacity", 1);
 
-    mySlidr.slider("value", mySlidr.slider("option", "min") )
-}
+    mySlidr.slider("value", mySlidr.slider("option", "min"))
+};

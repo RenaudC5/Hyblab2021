@@ -1,6 +1,12 @@
-let initMoreInfo = function(){
-    d3.select('.go-back-more-infos').on('click', function (){
+let initMoreInfo = function() {
+
+    muteAll();
+
+    d3.select('.go-back-more-infos').on('click', function() {
         mySlidr.slide('down');
-        initHome();
+        resetHome();
+        setTimeout(function() {
+            initHome();
+        }, 1200);
     });
-}
+};

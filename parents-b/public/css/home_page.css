@@ -68,7 +68,7 @@
 
 .catch-phrase{
     position: absolute;
-    top: 80%;
+    top: 78%;
     margin-bottom: 2.5em;
     left: 50%;
     width: 40%;
@@ -110,6 +110,23 @@
 }
 
 .button-histoire:hover{
+    color: #FFCDB6;
+    background-color: #45396D;
+    border: 0.3em solid #aba3ca;
+}
+
+.more-info{
+    position: absolute;
+    top: 2%;
+    left: 13%;
+    z-index: 3;
+    padding: 0.5% 0.3% 0.5% 0.3%;
+    border: 0.3em solid #ffe9de;
+    border-radius: 2em;
+    font-size: 20%;
+}
+
+.more-info:hover{
     color: #FFCDB6;
     background-color: #45396D;
     border: 0.3em solid #aba3ca;

@@ -1,52 +1,59 @@
-let initHour = function(){
-    
-    //--------------AUDIO-----------
+let initHour = function() {
 
-    document.getElementById('adresse_audio').pause();
+    // ----------------- AUDIO -----------------
+    muteAll();
 
     let x = document.getElementById("volumeHour");
     x.setAttribute("src", "./img/common/volume_on.svg");
 
-    if(isSonOn){
+    if (isSonOn) {
         document.getElementById('hour_audio').play();
         document.getElementById('hour_audio').loop = false;
     }
-    else{
-        x.setAttribute("src", "./img/common/volume_off.svg");
-    }
-    d3.selectAll('.volume').on('click', function (){
-        if(isSonOn){
+    else x.setAttribute("src", "./img/common/volume_off.svg");
+
+
+    d3.selectAll('#volumeHour').on('click', function() {
+        if (isSonOn) {
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);
-            document.getElementById('hour_audio').pause(); 
-        }
-        else{
+            document.getElementById('hour_audio').pause();
+        } else {
             this.setAttribute("src", "./img/common/volume_on.svg");
             isSonOn = Boolean(true);
-            document.getElementById('hour_audio').play(); 
+            document.getElementById('hour_audio').play();
         }
-    });   
+    });
 
-    //--------------HEADER-------------
-    
-    d3.select('.logoAccueil2').on('click', function (){
+
+    // ------------------- HEADER --------------------
+    d3.select('.logoAccueil2').on('click', function() {
         mySlidr.slide('home-page');
-        initHome();
-        resetHome();
+        setTimeout(function() {
+            initHome();
+            resetHome();
+        }, 1200);
     });
 
-    d3.select(".button-suivant-hour").on("click", function (){
-        mySlidr.slide('right');
-        initAge();
-    });
 
+    // --------------- BOUTONS ET ANIMATIONS ------------
     //Bouton Suivant
+    d3.select(".button-suivant-hour").on("click", function() {
+        mySlidr.slide('right');
+        setTimeout(function() {
+            initAge();
+        }, 1200);
+    });
+
+
+    // Animation du bouton "Suivant"
     let tl_suivant_hour_over = anime.timeline({
         easing: 'linear',
         loop:true
     });
 
-    d3.select('.button-suivant-hour').on('mouseover', function (){
+
+    d3.select('.button-suivant-hour').on('mouseover', function() {
         tl_suivant_hour_over
             .add({
                 targets: ".button-suivant-hour",
@@ -65,7 +72,8 @@ let initHour = function(){
             })
     });
 
-    d3.select('.button-suivant-hour').on('mouseleave' ,function (){
+
+    d3.select('.button-suivant-hour').on('mouseleave' ,function() {
         anime({
             targets: ".button-suivant-hour",
             scale: 1,
@@ -75,50 +83,71 @@ let initHour = function(){
         tl_suivant_hour_over.pause();
     });
 
-    d3.select(".arianne-1-hour").on('click', function (){
+    // Fil d'Ariane
+    d3.select(".ariane-1-hour").on('click', function() {
+        muteAll();
         mySlidr.slide('left');
-        initAddress();
+        setTimeout(function() {
+            initAddress();
+        }, 1200);
     });
 
-    d3.select(".arianne-3-hour").on('click', function (){
+
+    d3.select(".ariane-3-hour").on('click', function() {
+        muteAll();
         mySlidr.slide('right');
-        initAge();
+        setTimeout(function() {
+            initAge();
+        }, 1200);
     });
 
-    d3.select(".arianne-4-hour").on('click', function (){
+
+    d3.select(".ariane-4-hour").on('click', function() {
+        muteAll();
         mySlidr.slide('right');
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('right');
         }, 1500);
-        initAccess();
+        setTimeout(function() {
+            initAccess();
+        }, 2700);
     });
 
-    d3.select(".arianne-5-hour").on('click', function (){
+
+    d3.select(".ariane-5-hour").on('click', function() {
+        muteAll();
         mySlidr.slide('right');
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('right');
         }, 1500);
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('up');
         }, 3000);
-        initFaunaFlora();
+        setTimeout(function() {
+            initFaunaFlora();
+        }, 4200);
     });
 
-    d3.select(".arianne-6-hour").on('click', function (){
+
+    d3.select(".ariane-6-hour").on('click', function() {
+        muteAll();
         mySlidr.slide('right');
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('right');
         }, 1500);
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('up');
         }, 3000);
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('right');
         }, 4500);
-        initActivities();
+        setTimeout(function() {
+            initActivities();
+        }, 5700);
     });
-
 };
+
+
 var s = null;
 var rayon = null;
 var bigCircle = null;
@@ -126,7 +155,9 @@ var polygon = null;
 var discs = null;
 var bigCircle2 = null;
 
-function createSlider () {
+
+// Slider circulaire
+function createSlider() {
     s = Snap("#svg-slider");
     rayon = document.querySelector("#svg-slider").clientWidth * 0.5;
     console.log(rayon);
@@ -136,7 +167,7 @@ function createSlider () {
         fill: "#45396D",
     });
 
-    polygon = s.polygon(rayon, 0, 0, 0, 0, 2*rayon, rayon, 2*rayon);
+    polygon = s.polygon(rayon,0, 0,0, 0,2*rayon, rayon,2*rayon);
     polygon.attr({
         fill: "#FFCDB6"
     });
@@ -153,31 +184,35 @@ function createSlider () {
     });
 }
 
-function calculX(dX,dY){
-    let a = ((2*rayon-dY)/(rayon-dX));
-    let b = dY - a*dX;
+
+function calculX(dX, dY) {
+    let a = ((2 * rayon - dY)/(rayon - dX));
+    let b = dY - a * dX;
     return(-b/a);
 }
 
-function calculY(dX,dY,x){
-    let a = ((2*rayon-dY)/(rayon-dX));
-    let b = dY - a*dX;
-    return(a*x+b)
+
+function calculY(dX, dY, x) {
+    let a = ((2 * rayon - dY)/(rayon - dX));
+    let b = dY - a * dX;
+    return(a * x + b)
 }
 
-window.addEventListener('resize', function (event){
+window.addEventListener('resize', function (event) {
     createSlider();
-})
+});
 
-document.querySelector("#svg-slider").addEventListener('click', function(event) {
+
+document.querySelector("#svg-slider")
+    .addEventListener('click', function(event) {
+
     let screenX=document.querySelector("#slidr").clientWidth;
     let screenY=document.querySelector("#slidr").clientHeight;
-
     let width = window.innerWidth;
     let height = window.innerHeight;
+    let dX = event.pageX - screenX * 0.36 - ((width - screenX) / 2);
+    let dY = event.pageY - screenY * 0.56 - ((height - screenY) / 2);
 
-        let dX = event.pageX - screenX*0.36 - ((width - screenX)/2);
-        let dY = event.pageY - screenY*0.56 - ((height-screenY)/2);
 
     document.querySelector("#svg-slider").innerHTML = "";
     let bigCircle = s.circle(rayon, rayon, rayon);
@@ -185,59 +220,57 @@ document.querySelector("#svg-slider").addEventListener('click', function(event) 
         fill: "#45396D",
     });
 
+
     let violet = document.querySelectorAll(".violet");
-    for(let v of violet){
+    for (let v of violet) {
         v.style.opacity = '0';
     }
 
+
     // Ajouter valeur myCriteria
-    if (dY < rayon && dX < rayon && ((dX-dY) >= 0)){
+    if (dY < rayon && dX < rayon && ((dX - dY) >= 0)) {
         updateHour(1);
         document.querySelector(".hour-aprem.violet").style.opacity = '1';
-    }
-
-    else if (dY < rayon && dX >= rayon && ((dX+dY) < 2*rayon)){
+    } else if (dY < rayon && dX >= rayon && ((dX + dY) < 2 * rayon)) {
         updateHour(1);
         document.querySelector(".hour-aprem.violet").style.opacity = '1';
-    }
-
-    else if (dY >= rayon && dX >= rayon || dY < rayon && dX >= rayon && ((dX+dY) >= 2*rayon) ){
+    } else if (dY >= rayon && dX >= rayon || dY < rayon && dX >= rayon && ((dX + dY) >= 2 * rayon)) {
         updateHour(2);
         document.querySelector(".hour-17.violet").style.opacity = '1';
-    }
-
-    else if(dY >= rayon && dX < rayon || dY < rayon && dX < rayon && ((dX-dY) < 0) ) {
+    } else if (dY >= rayon && dX < rayon || dY < rayon && dX < rayon && ((dX - dY) < 0) ) {
         updateHour(0);
         document.querySelector(".hour-9.violet").style.opacity = '1';
     }
 
+
     // Ajuster le polygone en fonction du click
     let nvX = calculX(dX, dY);
-    if(dX < rayon && ((dY-2*dX) < 0)){
+    if (dX < rayon && ((dY - 2 * dX) < 0)){
         polygon = s.polygon(nvX,0 , 0,0 , 0,2*rayon , rayon,2*rayon);
     }
 
-    if(dX >= rayon && ((dY+2*dX) < 4*rayon)){
+    if (dX >= rayon && ((dY + 2 * dX) < 4 * rayon)){
         polygon = s.polygon(nvX,0 , 0,0 , 0,2*rayon , rayon,2*rayon);
     }
 
-    if(dX >= rayon && ((dY+2*dX) >= 4*rayon)){
-        let nvY = calculY(dX,dY,2*rayon);
+    if (dX >= rayon && ((dY + 2 * dX) >= 4 * rayon)) {
+        let nvY = calculY(dX, dY,2 * rayon);
         polygon = s.polygon(2*rayon,nvY , 2*rayon,0 , 0,0, 0,2*rayon , rayon,2*rayon);
     }
 
-    if(dX < rayon && ((dY-2*dX) >= 0)) {
-        let nvY = calculY(dX,dY,0);
+    if(dX < rayon && ((dY - 2 * dX) >= 0)) {
+        let nvY = calculY(dX, dY,0);
         polygon = s.polygon(0,nvY , 0,2*rayon , rayon,2*rayon);
     }
 
     discs = s.group(bigCircle, polygon);
     polygon.attr({
-        fill: "#FFCDB6"
+        fill: "#FFCDB6",
     });
     discs.attr({
-        mask: bigCircle2
+        mask: bigCircle2,
     });
 });
-createSlider();
 
+
+createSlider();
