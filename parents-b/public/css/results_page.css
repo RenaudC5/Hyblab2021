@@ -208,10 +208,6 @@
     position: absolute;
 }
 
-.results-more-info > img{
-    width: 100%;
-}
-
 .results-more-info-text{
     display: none;
 }
@@ -219,13 +215,13 @@
 .results-more-info:hover + .results-more-info-text{
     display: block;
     z-index: 5;
-    left: 5%;
-    top: 8%;
+    left: 4.5%;
+    top: 19%;
     font-size: small;
-    position: relative;
+    position: absolute;
     background-color: rgba(69, 57, 109, .85);
     border-radius: 7px;
     padding: 5px 10px;
     width: 85%;
+    text-align: justify;
 }
-
