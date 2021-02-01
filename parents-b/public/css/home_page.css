@@ -1,8 +1,7 @@
 /* ------------------------- Page Home ---------------------------- */
 .trees-planet-home{
     position: absolute;
-    /* top: 40.5%; */
-    bottom: 0;
+    top: 39%;
     left: 0;
     width: 36%;
     z-index: 4;
